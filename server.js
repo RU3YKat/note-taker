@@ -1,9 +1,11 @@
+const fs = require('fs');
+const path = require('path');
+
 const { notes } = require('./db/db');
 const express = require('express');
+const { v4: uuidv4 } = require('uuid');
 const PORT = process.env.PORT || 3000;
 const app = express();
-
-// let notesArray =[];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -11,6 +13,30 @@ app.use(express.json());
 function findById(id, notesArray) {
     const result = notesArray.filter(note => note.id === id) [0];
     return result;
+}
+
+function createNewNote(body, notesArray) {
+    const note = body;
+     // add unique id to new note via uuid
+    note.id = uuidv4();
+    notesArray.push(note);
+
+    // import and use the fs library to write copy of notes db to notes.json
+    fs.writeFileSync(
+        path.join(__dirname, './db/db.json'),
+        JSON.stringify({ notes: notesArray }, null, 2)
+    )
+    return note;
+}
+
+function validateNote(note) {
+    if (!note.title || typeof note.title !== 'string') {
+        return false;
+    }
+    if (!note.text || typeof note.text !== 'string') {
+        return false;
+    }
+    return true;
 }
 
 // perhaps this doesn't work bc the titles are NOT in an array
@@ -38,12 +64,6 @@ function findById(id, notesArray) {
 //     return filteredResults;
 // }
 
-function createNewNote(body, notesArray) {
-    console.log(body);
-
-    return body;
-}
-
 // GET notes array from path as json
 app.get('/api/notes', (req, res) => {
     // notesArray = JSON.parse(notes);
@@ -51,17 +71,27 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.get('/api/notes/:id', (req, res) => {
-    
+    const result = findById(req.params.id, notes);
+    if (result) {
+        res.json(result);
+    } else {
+        res.send(404);
+    }
 });
 
 // used to create routes to add notes to db
 app.post('/api/notes', (req, res) => {
-    notesArray = JSON.parse(notesArray);
-   // set id based on what the next index of the array will be
-   // WILL THIS WORK W/O EXISTING ID KEY PAIR???????
-    req.body.id = animals.length.toString();
-    
-    res.json(req.body);
+
+    // if data in req.body is incorrect, return 400 error
+    if (!validateNote(req.body)) {
+        res.status(400).send('The note is not properly formatted.')
+    } else {
+    // access new note string in POST request
+    const note = createNewNote(req.body, notes);
+
+    // send json response
+    res.json(note);
+    }
 });
 
 app.listen(PORT, () => {
