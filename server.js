@@ -10,7 +10,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // middleware instructing server to make files in folder available
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 function findById(id, notesArray) {
     const result = notesArray.filter(note => note.id === id) [0];
@@ -68,10 +68,8 @@ function validateNote(note) {
 
 // GET notes array from path as json
 app.get('/api/notes', (req, res) => {
-    let results = notes;
-    res.json(results);
     // notesArray = JSON.parse(notes);
-    // res.json(notes);
+    res.json(notes);
 });
 
 // may be useless...uuid is too complicated to search for directly... 
@@ -100,9 +98,9 @@ app.post('/api/notes', (req, res) => {
 });
 
 // add html routes from root ('/')
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, './public/index.html'));
+// });
 
 app.listen(PORT, () => {
     console.log(`API server now on ${PORT}!`);
