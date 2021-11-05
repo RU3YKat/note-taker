@@ -70,6 +70,8 @@ app.get('/api/notes', (req, res) => {
     res.json(notes);
 });
 
+// may be useless...uuid is too complicated to search for directly... 
+// likely better to search by title
 app.get('/api/notes/:id', (req, res) => {
     const result = findById(req.params.id, notes);
     if (result) {
