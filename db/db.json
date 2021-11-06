@@ -1,23 +1,6 @@
-{
-  "notes": [
+[
     {
-      "title": "Sleep",
-      "text": "Get more of it!"
-    },
-    {
-      "title": "Sleep",
-      "text": "Go to sleep before 3 am!",
-      "id": "3300ecb6-262d-48e3-90b7-93959ee44d94"
-    },
-    {
-      "title": "Study",
-      "text": "Catch up on modules.",
-      "id": "5654b1e2-a4a7-4b8a-8814-48d77b620066"
-    },
-    {
-      "title": "Adjust Timing",
-      "text": "Push instance 30 min forward.",
-      "id": "cb04976a-abd7-4835-b736-a7f05e332a4c"
+        "title":"Test Title",
+        "text":"Test text"
     }
-  ]
-}
+]

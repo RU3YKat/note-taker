@@ -9,16 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "uuid": "^8.3.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RU3YKat/note-taker.git"
-  },
-  "keywords": [],
-  "bugs": {
-    "url": "https://github.com/RU3YKat/note-taker/issues"
-  },
-  "homepage": "https://github.com/RU3YKat/note-taker#readme"
+    "express": "^4.16.4"
+  }
 }
