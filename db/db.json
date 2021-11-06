@@ -13,6 +13,11 @@
       "title": "Study",
       "text": "Catch up on modules.",
       "id": "5654b1e2-a4a7-4b8a-8814-48d77b620066"
+    },
+    {
+      "title": "Adjust Timing",
+      "text": "Push instance 30 min forward.",
+      "id": "cb04976a-abd7-4835-b736-a7f05e332a4c"
     }
   ]
 }
