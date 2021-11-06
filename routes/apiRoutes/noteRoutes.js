@@ -1,3 +1,4 @@
+const fs = require('fs');
 const router = require('express').Router();
 
 const { validateNote, createNewNote } = require('../../lib/notes');
@@ -5,8 +6,8 @@ const { notes } = require('../../db/db');
 
 // GET notes array from path as json
 router.get('/notes', (req, res) => {
-    // let data = JSON.parse(fs.readFileSync('./db/db.json'));
-    res.json(notes);
+    let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
+    res.json(data);
 });
 
 // may be useless...uuid is too complicated to search for directly... 
