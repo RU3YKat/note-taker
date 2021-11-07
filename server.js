@@ -11,7 +11,6 @@ app.use(express.static('public'));
 
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
-// middleware instructing server to make files in folder available
 
 app.listen(PORT, () => {
     console.log(`API server now on ${PORT}!`);

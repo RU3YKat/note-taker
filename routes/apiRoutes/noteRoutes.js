@@ -6,7 +6,6 @@ const { notes } = require('../../db/db');
 
 // GET notes array from path as json
 router.get('/notes', (req, res) => {
-    // let data = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
     res.json(notes);
 });
 
