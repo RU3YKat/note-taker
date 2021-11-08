@@ -31,13 +31,14 @@ All notes can be found in JSON format in db/db.json.
 
 [](https://img.shields.io/badge/License-MIT-violet.svg)
 
-![Landing Page](./quickdemo.gif)
+![Landing Page](public/assets/images/note-taker-landing.png)  
+The Landing page at [Heroku Deployment](http://ru3ykat-note-taker.herokuapp.com/)  
 
-![Active Note-Taker](images/Screenshot-node.png)  
-Screenshot of user inputting data in CLI.
+![Active Note-Taker](public/assets/images/note-taker-active.png)  
+Easy note retrieval.
 
-![Adding New Note](images/Screenshot-READMEfinal.png)  
-Screenshot of end product README.
+![Adding New Note](public/assets/images/note-taker-add.png)  
+Easy note addition.
 
 ## License
 
@@ -45,7 +46,9 @@ This project was created using MIT license.
 
 ## Contributing
 
-This is an open source project.
+This is an open source project.  
+
+Future deployments to add delete note functionality.
 
 ## Testing
 
